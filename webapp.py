@@ -8,7 +8,7 @@ Created on Tue May  9 14:00:41 2023
 import numpy as np
 import pickle #to load a trained model 
 import streamlit as st #used to create a webpage 
-loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/trained_model.sav','rb'))
+loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/Diabetes_trained_model.sav','rb'))
 #rb means reading a file in abinary format
 #creating a function for predection 
 
@@ -32,33 +32,31 @@ def diabetes_prediction(input_data):
     print(prediction)
     
     if (prediction[0] ==0 ):#The prediction gives the values the value in the form of a list and the result is displayed at an index of 0 so
-        return "The person is not diabetic"
+        return "The person is type 2 diabetic"
     else:
-        return "The person is diabetic"
+        return "The person is type 1 diabetic"
     
 #creating a user intrface    
 def main():
     #title 
-    st.title("Diabetes prediction WEB APP")
+    st.title("Diabetes classification web app")
     
     #getting the input data from the user
-    
-    Pregnancies=st.text_input("Enter the number of pregnancies")
-    Glucose=st.text_input("Glucose level")
-    BloodPressure=st.text_input("Blood pressure levels")
-    SkinThickness=st.text_input("Enter skinthickness")
-    Insulin=st.text_input("Enter the level of insulin ")
-    BMI=st.text_input("Enter BMI of the patience")
-    DiabetesPedigreeFunction=st.text_input("Enter the diabetes pedegree function ")
     Age=st.text_input("Enter Age of the patinet")
+    InsulinUp=st.text_input("Enter 1 if there is increase in Insulin ")
+    InsulinDown=st.text_input("Enter 1 if there is decrease in Insulin")
+    InsulinSteady=st.text_input("Enter 1 if Insulin is steady")
+    A1C=st.text_input("Enter A1C level ")
+    On_Medication=st.text_input("Enter 1 if you are on medication and 0 is not ")
+ 
     
     #code for prediction.This is were the final results will be stored
     diagnosis=''
     
     #creating a button for prediction 
     if st.button('Diabetes test result'):
-        diagnosis=diabetes_prediction([Pregnancies,Glucose, BloodPressure,
-                                       SkinThickness,Insulin, BMI,DiabetesPedigreeFunction, Age])
+        diagnosis=diabetes_prediction([Age,InsulinUp, InsulinDown,
+                                      InsulinSteady,A1C, On_Medication])
     st.success(diagnosis)
     
 if __name__ == '__main__':#run only the main function, while running from anaconda

@@ -9,8 +9,10 @@ import numpy as np
 import pickle
 
 #loding the saved model 
-loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/trained_model.sav','rb'))
-input_data = (5,166,72,19,175,25.8,0.587,51)
+loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/Diabetes_trained_model.sav','rb'))
+
+
+input_data=(70,1,0,0,8.5,1)
 
 #change the input data to a numpy array 
 input_data_as_numpy_array=np.asarray(input_data)
@@ -29,6 +31,6 @@ input_data_reshaped= input_data_as_numpy_array.reshape(1,-1)
 prediction=loaded_model.predict(input_data_reshaped)
 print(prediction)
 if (prediction[0]==0):#The prediction gives the values the value in the form of a list and the result is displayed at an index of 0 so
-  print("The person is not diabetic")
+  print("The person is type 2 diabetic")
 else:
-    print("The person is diabetic")
+  print("The person is type 1 diabetic")
