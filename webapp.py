@@ -8,7 +8,7 @@ Created on Tue May  9 14:00:41 2023
 import numpy as np
 import pickle #to load a trained model 
 import streamlit as st #used to create a webpage 
-loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/Diabetes_trained_model.sav','rb'))
+loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/Diabetes_trained_modelv2.sav','rb'))
 #rb means reading a file in abinary format
 #creating a function for predection 
 

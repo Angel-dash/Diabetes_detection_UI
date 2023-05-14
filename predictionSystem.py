@@ -9,10 +9,10 @@ import numpy as np
 import pickle
 
 #loding the saved model 
-loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/Diabetes_trained_model.sav','rb'))
+loaded_model=pickle.load(open('C:/Users/Angel/Documents/Deploying_machine_learning/Diabetes_trained_modelv2.sav','rb'))
 
 
-input_data=(70,1,0,0,8.5,1)
+input_data=(10,0,0,0,6,0)
 
 #change the input data to a numpy array 
 input_data_as_numpy_array=np.asarray(input_data)
